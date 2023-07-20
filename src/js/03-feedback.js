@@ -31,6 +31,11 @@ function loadFormState() {
 function handleSubmit(event) {
   event.preventDefault();
 
+  if (!emailInput.value || !messageTextarea.value) {
+      alert('Будь ласка, заповніть всі поля форми.');
+      return;
+  }
+
   const feedbackStateJSON = localStorage.getItem(feedbackStateStorageKey);
   if (feedbackStateJSON) {
     localStorage.removeItem(feedbackStateStorageKey);
@@ -45,3 +50,4 @@ function handleSubmit(event) {
 
   form.reset();
 }
+
